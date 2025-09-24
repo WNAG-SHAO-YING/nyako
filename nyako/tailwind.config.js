@@ -6,7 +6,9 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: { colors: {
+        lightbg: "#f8f8f8",  // 新增一個自訂顏色名稱
+      },},
   },
   plugins: [],
 }
