@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 export default function Carousel() {
+    //測試
     let [slider, setSlider] = useState(0)
     return (
         <>
