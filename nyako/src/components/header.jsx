@@ -4,7 +4,7 @@ export default function Header() {
 
     return (
         <>
- <header className="
+ <header id="header" className="
                   hidden md:grid grid-cols-3 items-center sticky 
                   w-full  h-24 top-0 md:bottom-auto
                    bg-white

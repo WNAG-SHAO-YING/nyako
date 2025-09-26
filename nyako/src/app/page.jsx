@@ -4,7 +4,9 @@ export default function Home() {
   return (
     <>
     <Carousel/>
+    <div className="flex flex-col items-center w-svw">
     <Event/>
+    </div>
     </>
   )
 }
