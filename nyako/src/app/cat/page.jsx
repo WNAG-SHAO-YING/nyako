@@ -2,6 +2,7 @@
 import { useState, useMemo, useCallback } from "react";
 import Archive from "@/components/archive";
 import FilterBar from "@/components/filterbar";
+import CatInfo from "@/components/cat-info";
 import Image from "next/image";
 import Luna from "@/../public/cat/SSR/blue-01.png";
 import EX from "@/../public/icon/icon.png";
@@ -27,20 +28,25 @@ function Cat() {
     );
     return (
         <>
-            <section className="relative w-full h-[400px] p-16 ">
+            <main className="flex flex-col items-center gap-14">
+                <section className="relative flex w-full  h-[30svh] md:h-[400px] justify-center items-center p-8   md:px-8  md:py-16   " >
 
-                <div
-                    className="absolute bg-repeat  inset-0  opacity-60"
-                    style={{ backgroundImage: `url(${bg.src})` }}
+                    <div className="absolute inset-0 z-0 bg-repeat opacity-60" style={{ backgroundImage: `url(${bg.src})` }}>
+                    </div>
+
+
+                    <div className="w-full h-full    md:w-4/6 md:h-full px-10 py-5  z-10  bg-white ">
+                        <Archive list={list} />
+                    </div>
+                </section>
+                <FilterBar
+                    options={FILTERS}
+                    value={filter}
+                    onChange={onFilterChange}
+                    allLabel="全部"
                 />
-                <Archive list={list} />
-            </section>
-            <FilterBar
-                options={FILTERS}
-                value={filter}
-                onChange={onFilterChange}
-                allLabel="全部"
-            />
+                <CatInfo />
+            </main>
         </>
     )
 }

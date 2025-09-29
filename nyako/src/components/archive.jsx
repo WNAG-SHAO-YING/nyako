@@ -26,13 +26,13 @@ export default function Archive({ list }) {
                                 layout
                                 initial={{ opacity: 0, x: 50 }}   // 從右邊 50px + 隱藏
                                 animate={{ opacity: 1, x: 0 }}    // 回到原位
-                                exit={{ opacity: 0, x: -50 }}      // 離開時再往右邊
+                                exit={{ opacity: 0, x: -40 }}      // 離開時再往右邊
                                 transition={{
                                     type: "spring",
                                     stiffness: 300,
                                     damping: 25,
                                 }}
-                                className="relative w-[104px] h-[79px] overflow-hidden rounded-none">
+                                className="relative w-[79px] h-[53px] md:w-[104px] md:h-[79px] overflow-hidden rounded-none">
                                 <Image src={img.photo} fill alt="藍眼" />
                             </MotionCard>
                         )
