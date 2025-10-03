@@ -1,0 +1,1 @@
+INSERT INTO `colorbridge` (`uid`, `color`) VALUES ('blue07', 'angel'), ('blue07', 'aqua'), ('blue07', 'black'), ('blue07', 'demon'), ('blue07', 'float'), ('blue07', 'iron'), ('blue07', 'old'), ('blue07', 'red'), ('blue07', 'zomble');

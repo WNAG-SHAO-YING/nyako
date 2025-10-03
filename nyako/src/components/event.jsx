@@ -25,8 +25,7 @@ export default function Event() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="flex flex-1"></div>
-                        <div className="flex flex-1"></div> */}
+
                     </div>
                 </section>
             </main>

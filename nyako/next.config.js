@@ -6,6 +6,16 @@ const nextConfig = {
   turbopack: {
     root: path.join(__dirname), // 指到 nyako
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3005",
+        pathname: "/public/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
