@@ -2,14 +2,10 @@ let express = require("express");
 let router = express.Router();
 let db = require("../db.js");
 
-router.get("/cat_status", async function (req, res) {
+router.get("/cat_ability", async function (req, res) {
   let sql = `SELECT *  
                       FROM cat_status 
                       LEFT JOIN series ON cat_status.uid = series.uid
-                      LEFT JOIN abilitybridge ON series.uid = abilitybridge.uid
-                      LEFT JOIN ability ON abilitybridge.abilityId = ability.abilityId
-                      LEFT JOIN colorbridge ON series.uid = colorbridge.uid
-                      LEFT JOIN colors ON colorbridge.color = colors.color
               `;
   try {
     const rows = await db.exec(sql); // 若 db.exec 是 async/Promise

@@ -11,7 +11,7 @@ export default function Archive({ list, onSelect }) {
 
     return (
         <>
-            <div onClick={() => onSelect?.(list)}>
+            <div >
                 {/* 透過父層傳進來的函式去執行，執行的資料會直接被記錄在父層的prop裡(selected) 就是把set... 的函式功能交給子元件使用 */}
 
 
@@ -25,11 +25,11 @@ export default function Archive({ list, onSelect }) {
                     }} className="flex gap-4">
                     <AnimatePresence mode="popLayout" initial={false}>
                         {list.map(item => {
-
                             return (
-                                <Link key={item.id} href={`/cat/${item.uid}`}>
+                                <Link key={item.uid} href={`/cat/${item.uid}`}>
                                     <MotionCard
                                         // 注意 key 要放在 MotionCard 上
+                                        onClick={() => onSelect?.(item)}
                                         layout
                                         initial={{ opacity: 0, x: 50 }}   // 從右邊 50px + 隱藏
                                         animate={{ opacity: 1, x: 0 }}    // 回到原位

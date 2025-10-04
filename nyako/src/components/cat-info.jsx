@@ -3,7 +3,7 @@ import Image from "next/image";
 import Luna from "@/../public/cat/SSR/blue-01.png"
 function CatInfo({ data }) {
     console.log("這是角色要的資料", data)
-    const item = data.list[0];
+    const item = data.list;
     if (!item) {
         return <div className="p-4">資料載入中… ⏳</div>;
     }

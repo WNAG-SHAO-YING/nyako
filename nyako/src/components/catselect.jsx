@@ -28,6 +28,7 @@ function Catselect() {
 
                 // ✅ 就在這裡 setData
                 setData(rows);
+
                 // 若要先正規化，可改成：setData(rows.map(x => ({ uid: x.uid, photo: x.url, ... })));
             } catch (err) {
                 if (err.name !== "AbortError") console.error(err);
@@ -41,6 +42,96 @@ function Catselect() {
         () => (filter === "" ? data : data.filter(x => x.rare === filter)),
         [filter, data]
     );
+
+
+
+    const oklist = useMemo(() => {
+        const acc = {};
+        for (const cur of list) {
+            const key = cur.uid;
+            if (!key) continue;
+
+            const { ability, ...base } = cur; // 把 1:N 欄位排除，其餘淺拷貝
+            if (!acc[key]) acc[key] = { ...base, abilities: [] };
+
+            const ab = ability ?? abilityName ?? ability_name;
+            if (ab && !acc[key].abilities.includes(ab)) acc[key].abilities.push(ab);
+        }
+        return Object.values(acc); // ← 最後才變回陣列
+    }, [list]);
+
+
+
+    // const combine = data.reduce((acc, cur) => {
+    //     const key = cur.uid;                // ⬅️ 用 uid 當分組 key
+    //     if (!key) {
+    //         console.warn("缺 uid，這筆略過：", cur);
+    //         return acc;
+    //     }
+
+    //     if (!acc[key]) {
+    //         // 只在第一次遇到該 uid 時建立骨架（挑你需要的欄位）
+    //         acc[key] = {
+    //             uid: cur.uid,
+    //             name: cur.name,                 // 若 cur 內有 name 就放；沒有可略
+    //             rare: cur.rare,                 // 其他基礎欄位照放
+    //             hp: cur.hp,
+    //             atk: cur.atk,
+    //             ats: cur.ats,
+    //             dps: cur.dps,
+    //             attack_range: cur.attack_range,
+    //             startup: cur.startup,
+    //             recovery: cur.recovery,
+    //             kb: cur.kb,
+    //             url: cur.url,
+    //             movement_speed: cur.movement_speed,
+    //             cost: cur.cost,
+    //             re_cost: cur.re_cost,
+    //             active: cur.active,
+    //             intro: cur.intro,
+
+    //             abilities: [],                  // 能力陣列
+    //         };
+    //     }
+
+
+
+    //     // 決定「能力」欄位名稱（依你的實際資料欄位調整）
+    //     const ability =
+    //         cur.ability ?? cur.abilityName ?? cur.ability_name ?? null;
+
+    //     if (ability) {
+    //         // 可選：去重，避免重覆能力
+    //         if (!acc[key].abilities.includes(ability)) {
+    //             acc[key].abilities.push(ability);
+    //         }
+    //     }
+
+    //     return acc;
+    // }, {});
+
+    //物件轉換陣列
+    // const oklist = useMemo(() => Object.values(combine), [combine]);
+
+    useEffect(() => {
+        console.log("list抓取到的資料", list)
+    }, [list]);
+
+
+
+
+    useEffect(() => {
+        console.log("oklist抓取到的資料", oklist)
+    }, [oklist]);
+
+
+
+
+
+
+
+
+
     return (
         <>
             <main className="flex flex-col items-center gap-14">
@@ -51,7 +142,7 @@ function Catselect() {
 
 
                     <div className="w-full h-full    md:w-4/6 md:h-full px-10 py-5  z-10  bg-white ">
-                        <Archive list={list} onSelect={setSelected} />
+                        <Archive list={oklist} onSelect={setSelected} />
                     </div>
                 </section>
                 <FilterBar
@@ -60,7 +151,7 @@ function Catselect() {
                     onChange={onFilterChange}
                     allLabel="全部"
                 />
-                {selected && <CatInfo data={{ list: data }} />}
+                {selected && <CatInfo data={{ list: selected }} />}
             </main>
         </>
     )
