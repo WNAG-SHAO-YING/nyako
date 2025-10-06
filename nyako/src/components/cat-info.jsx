@@ -13,7 +13,7 @@ function CatInfo({ data }) {
             <div className=" aspect-[6/5] w-3/4  md:w-1/3 bg-white" >
                 <div className="grid grid-rows-6 h-1/2   ">
                     <div className="row-span-1 grid grid-cols-9  h-full outline   outline-4 outline-lightbg ">
-                        <div className="col-span-1 flex h-full items-center justify-center bg-myyellow">{item.uid}</div>
+                        <div className="col-span-1 flex h-full items-center justify-center bg-myyellow"></div>
                         <div className="col-span-4 flex h-full items-center justify-start pl-11">{item.name} </div>
                         <div className="col-span-4 flex h-full items-center justify-center">稀有度:{item.rare}</div>
                     </div>
@@ -92,7 +92,7 @@ function CatInfo({ data }) {
                         <div className="col-span-1 bg-myyellow text-xs md:text-xl">再生產</div>
                         <div className="col-span-2 grid place-items-center">{item.re_cost?.toFixed(1)}S</div>
                         <div className="col-span-1 bg-myyellow text-xs md:text-xl">攻擊間隔</div>
-                        <div className="col-span-2 grid place-items-center">{item.active}</div>
+                        <div className="col-span-2 grid place-items-center">{item.active?.toFixed(1)}</div>
                         <div className="col-span-1 bg-myyellow text-xs md:text-xl">攻擊後搖</div>
                         <div className="col-span-2 grid place-items-center">{item.recovery?.toFixed(1)}s</div>
                     </div>
@@ -101,8 +101,15 @@ function CatInfo({ data }) {
                 <div className="grid grid-rows-2 h-1/2 outline   outline-4 outline-lightbg ">
                     <div className="row-span-1 flex flex-row h-full">
                         <div className="flex-[1] bg-myyellow text-xs md:text-xl">特性</div>
-                        <div className="flex-[8] flex justify-center items-center">
-                            特性圖片
+                        <div className="flex-[8] flex justify-center items-center gap-2">
+                            {
+                                item.abilities_url.map(function (url, id) {
+                                    return (
+                                        <Image src={url} width={40} height={40} alt="能力" key={id} />
+                                    )
+                                })
+                            }
+
                         </div>
                     </div>
                     <div className="row-span-1 flex flex-row h-full outline   outline-4 outline-lightbg">

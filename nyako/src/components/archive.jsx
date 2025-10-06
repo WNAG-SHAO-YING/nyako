@@ -11,7 +11,7 @@ export default function Archive({ list, onSelect }) {
 
     return (
         <>
-            <div >
+            <div className=" max-h-[150px] md:max-h-[200px] overflow-y-auto  overscroll-contain " >
                 {/* 透過父層傳進來的函式去執行，執行的資料會直接被記錄在父層的prop裡(selected) 就是把set... 的函式功能交給子元件使用 */}
 
 
@@ -22,8 +22,19 @@ export default function Archive({ list, onSelect }) {
                             duration: 0.35,
                             ease: [0.22, 1, 0.36, 1],
                         },
-                    }} className="flex gap-4">
-                    <AnimatePresence mode="popLayout" initial={false}>
+                    }}
+                    className="
+                        grid  gap-1  md:gap-4
+                        grid-cols-[repeat(auto-fit,minmax(50px,50px))]
+                       md:grid-cols-[repeat(auto-fit,minmax(50px,104px))]
+                        justify-start 
+                        justify-items-start
+                        content-start
+                        w-full
+                    "
+                // className="flex flex-wrap gap-4"
+                >
+                    <AnimatePresence mode="wait" initial={false}>
                         {list.map(item => {
                             return (
                                 <Link key={item.uid} href={`/cat/${item.uid}`}>
@@ -39,7 +50,7 @@ export default function Archive({ list, onSelect }) {
                                             stiffness: 300,
                                             damping: 25,
                                         }}
-                                        className="relative w-[79px] h-[53px] md:w-[104px] md:h-[79px] overflow-hidden rounded-none">
+                                        className="relative w-[50px] h-[36px] md:w-[104px] md:h-[79px] overflow-hidden rounded-none">
                                         <Image src={`http://localhost:3005/public${item.url}`} fill sizes="max-width:104px max-height:79px" alt="藍眼" />
                                     </MotionCard>
                                 </Link>

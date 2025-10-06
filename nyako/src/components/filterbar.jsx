@@ -11,7 +11,7 @@ function FilterBar({ options, value, onChange, showAll = true, allLabel = "å…¨éƒ
                         onClick={() => onChange("")}
                         variant={value === "" ? "default" : "outline"}
                         size="sm"
-                        className="rounded-xl w-32 h-16 md:w-24 md:h-12 text-xl bg-myyellow"
+                        className="rounded-xl w-16 h-8 md:w-24 md:h-12 text-xl bg-myyellow"
                     >
                         {allLabel}
                     </Button>
@@ -22,7 +22,7 @@ function FilterBar({ options, value, onChange, showAll = true, allLabel = "å…¨éƒ
                         onClick={() => onChange(x)}
                         variant={x === value ? "default" : "outline"}
                         size="lg"
-                        className="rounded-xl  w-32 h-16 md:w-24 md:h-12 text-xl bg-myyellow"
+                        className="rounded-xl  w-16 h-8 md:w-24 md:h-12 text-xl bg-myyellow"
                     >
                         {x}
                     </Button>
