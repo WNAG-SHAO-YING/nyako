@@ -1,10 +1,15 @@
-import CharacterGridFM from "@/components/gacha";
-function Gacha() {
+import { Gacha, GachaPhone } from "@/components/gacha";
+function GachaList() {
     return (
         <>
-            <h1>這裡是轉蛋列表</h1>
-            <CharacterGridFM />
+
+
+            <Gacha />
+
+
+            <GachaPhone />
+
         </>
     )
 }
-export default Gacha;
+export default GachaList;

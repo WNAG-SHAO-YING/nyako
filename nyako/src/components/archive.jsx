@@ -11,7 +11,7 @@ export default function Archive({ list, onSelect }) {
 
     return (
         <>
-            <div className=" max-h-[150px] md:max-h-[200px] overflow-y-auto  overscroll-contain " >
+            <div className=" max-h-[150px] md:max-h-[200px] overflow-y-auto  overscroll-contain py-1" >
                 {/* 透過父層傳進來的函式去執行，執行的資料會直接被記錄在父層的prop裡(selected) 就是把set... 的函式功能交給子元件使用 */}
 
 
@@ -34,7 +34,7 @@ export default function Archive({ list, onSelect }) {
                     "
                 // className="flex flex-wrap gap-4"
                 >
-                    <AnimatePresence mode="wait" initial={false}>
+                    <AnimatePresence mode="sync" initial={false}>
                         {list.map(item => {
                             return (
                                 <Link key={item.uid} href={`/cat/${item.uid}`}>
@@ -45,10 +45,11 @@ export default function Archive({ list, onSelect }) {
                                         initial={{ opacity: 0, x: 50 }}   // 從右邊 50px + 隱藏
                                         animate={{ opacity: 1, x: 0 }}    // 回到原位
                                         exit={{ opacity: 0, x: -40 }}      // 離開時再往右邊
+                                        whileHover={{ scale: 1.1 }}
                                         transition={{
                                             type: "spring",
                                             stiffness: 300,
-                                            damping: 25,
+                                            damping: 35,
                                         }}
                                         className="relative w-[50px] h-[36px] md:w-[104px] md:h-[79px] overflow-hidden rounded-none">
                                         <Image src={`http://localhost:3005/public${item.url}`} fill sizes="max-width:104px max-height:79px" alt="藍眼" />
