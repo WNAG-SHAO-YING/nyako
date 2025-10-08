@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cat_status = require("./routes/cat_status");
+const stage = require("./routes/stage");
 const cors = require("cors");
 
 app.use(
@@ -27,4 +28,5 @@ app.use(
 );
 
 app.use("/api", cat_status);
+app.use("/api", stage);
 module.exports = app;

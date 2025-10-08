@@ -2,10 +2,11 @@ let express = require("express");
 let router = express.Router();
 let db = require("../db.js");
 
-router.get("/cat_ability", async function (req, res) {
+router.get("/stage", async function (req, res) {
   let sql = `SELECT *  
-                      FROM cat_status 
-                      LEFT JOIN series ON cat_status.uid = series.uid
+                      FROM enemy
+                      LEFT JOIN stage_info ON enemy.enemy_id = stage_info.enemy_id
+                      LEFT JOIN stage ON  stage_info.stage_id = stage.stage_id
               `;
   try {
     const rows = await db.exec(sql); // 若 db.exec 是 async/Promise

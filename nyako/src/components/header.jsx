@@ -20,7 +20,7 @@ export default function Header() {
           <Link href="/gacha">
             <span className="text-3xl ">轉蛋</span>
           </Link>
-          <Link href="stage">
+          <Link href="/stage">
             <span className="text-3xl ">關卡</span>
           </Link>
         </div>
