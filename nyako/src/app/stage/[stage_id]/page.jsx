@@ -76,17 +76,21 @@ function Stage() {
         console.log(typeof oklist)
     }, [oklist])
 
+    const rewardUrl = oklist[0]?.reward_url;
+    const text = "text-xl md:text-2xl"
 
     return (
         <main className="flex flex-col ">
-            <div>
-                關卡名稱:
-            </div>
-            <div>
-                通關獎勵
+            <div className={`flex flex-col ${text} items-center gap-32 my-24`}>
+                <div>
+                    關卡名稱:{oklist[0]?.stage_name}
+                </div>
+                <div>
+                    通關獎勵{rewardUrl && <Image src={rewardUrl} width={104} height={79} alt="通關獎勵" />}
+                </div>
             </div>
             <section className="flex flex-col">
-                <div className="grid grid-cols-5 h-[5vh] text-2xl text-center items-center bg-myyellow">
+                <div className={`grid grid-cols-5 h-[5vh] ${text} text-center items-center bg-myyellow`}>
                     <div>敵人</div>
                     <div>名稱</div>
                     <div>倍率</div>
@@ -103,7 +107,7 @@ function Stage() {
                                 {
                                     stage.enemies.map((enemy, j) => {
                                         return (
-                                            <div className="grid grid-cols-5 h-[5vh] text-2xl text-center items-center" key={j}>
+                                            <div className="grid grid-cols-5 h-[5vh] text-xl md:text-2xl text-center items-center" key={j}>
                                                 <div>
                                                     <Image src={enemy.url} width={64} height={64} alt="dog" />
                                                 </div>

@@ -13,7 +13,7 @@ export default function Event() {
                     <div className="grid grid-rows-3">
                         <div className="flex flex-col md:flex-row flex-1 relative  gap-2.5 w-full h-auto">
                             <figure className="flex w-full md:w-1/2 items-center ">
-                                <Image src="/event/island.jpg" width={300} height={150} alt="貓咪的暑假" className="rounded-2xl w-full " />
+                                <Image src="/event/island.jpg" width={960} height={480} alt="貓咪的暑假" className="rounded-2xl w-full " />
                             </figure>
                             <div className="w-full md:w-1/2 ">
                                 <span className=" hidden text-xs md:block md:text-2xl  ">可獲取角色</span>
