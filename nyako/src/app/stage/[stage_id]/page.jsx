@@ -2,6 +2,7 @@
 import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 function Stage() {
     let [data, setData] = useState(null);
     const { stage_id } = useParams();
@@ -76,21 +77,25 @@ function Stage() {
         console.log(typeof oklist)
     }, [oklist])
 
+    const cat = oklist[0]?.reward;
     const rewardUrl = oklist[0]?.reward_url;
     const text = "text-xl md:text-2xl"
+    const grid = "grid grid-cols-5 h-[5vh]"
+    const layout = "text-center items-center"
+    const flex = "flex flex-col"
 
     return (
-        <main className="flex flex-col ">
-            <div className={`flex flex-col ${text} items-center gap-32 my-24`}>
-                <div>
+        <main className={`${flex}`}>
+            <div className={`${flex} ${text} items-center gap-16 my-24`}>
+                <div className="bg-myyellow">
                     關卡名稱:{oklist[0]?.stage_name}
                 </div>
                 <div>
-                    通關獎勵{rewardUrl && <Image src={rewardUrl} width={104} height={79} alt="通關獎勵" />}
+                    通關獎勵{rewardUrl && <Link href={`/cat/${cat}`}><Image src={rewardUrl} width={104} height={79} alt="通關獎勵" /></Link>}
                 </div>
             </div>
-            <section className="flex flex-col">
-                <div className={`grid grid-cols-5 h-[5vh] ${text} text-center items-center bg-myyellow`}>
+            <section className={`${flex}`}>
+                <div className={`${grid} ${text} ${layout} bg-myyellow`}>
                     <div>敵人</div>
                     <div>名稱</div>
                     <div>倍率</div>
@@ -107,8 +112,8 @@ function Stage() {
                                 {
                                     stage.enemies.map((enemy, j) => {
                                         return (
-                                            <div className="grid grid-cols-5 h-[5vh] text-xl md:text-2xl text-center items-center" key={j}>
-                                                <div>
+                                            <div className={`${grid} ${layout} text-xl gap-2 md:text-2xl `} key={j}>
+                                                <div className="flex justify-center">
                                                     <Image src={enemy.url} width={64} height={64} alt="dog" />
                                                 </div>
                                                 <div>{enemy.enemy_name}</div>

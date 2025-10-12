@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 export default function Header() {
-
+  const layout = "flex flex-col items-center"
   return (
     <>
       <header id="header" className="
                   hidden md:grid grid-cols-3 items-center sticky 
-                  w-full  h-24 top-0 md:bottom-auto
+                  w-full  h-24 top-0 md:bottom-auto z-50
                    bg-white
     ">
         <Image src="/icon/icon.png" width="60" height="60" priority alt="icon" />
@@ -31,25 +31,25 @@ export default function Header() {
             bg-orange-100
             z-50">
         <Link href="/">
-          <div className="flex flex-col items-center">
+          <div className={`${layout}`}>
             <Image src="/icon/icon.png" className='block shrink-0' width={48} height={48} priority alt="icon" />
             <span className="text-3xl ">首頁</span>
           </div>
         </Link>
         <Link href="/cat">
-          <div className="flex flex-col items-center">
+          <div className={`${layout}`}>
             <Image src="/cat-library.png" width={60} height={60} priority alt="library" />
             <span className="text-3xl ">圖鑑</span>
           </div>
         </Link>
         <Link href="/gacha">
-          <div className="flex flex-col items-center">
+          <div className={`${layout}`}>
             <Image src="/gacha.png" width={48} height={48} priority alt="gacha" />
             <span className="text-3xl ">轉蛋</span>
           </div>
         </Link>
         <Link href="/stage">
-          <div className="flex flex-col items-center">
+          <div className={`${layout}`}>
             <Image src="/stage.png" width={48} height={48} priority alt="stage" />
             <span className="text-3xl ">關卡</span>
           </div>

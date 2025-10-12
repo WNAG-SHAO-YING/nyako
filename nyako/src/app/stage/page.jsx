@@ -5,20 +5,22 @@ import Link from "next/link";
 
 function StageList() {
     let flip = "absolute flex [backface-visibility:hidden] transition-transform duration-500 "
+    let section = "group relative w-svw max-w-[960px]  aspect-[2/1] [perspective:1000px] [transform-style:preserve-3d]"
+    let hover = "group-hover:[transform:rotateY(180deg)]"
+    let front = "[transform:rotateY(0deg)]"
+    let textLayout = "justify-center items-center t-0 r-0 w-full h-full whitespace-pre-line text-center [font-size:4cqw] md:text-2xl"
+    let bg = "[transform:rotateY(180deg)] group-hover:[transform:rotateY(360deg)] bg-[url(/card.png)]"
     return (
         <main className="flex flex-col  items-center gap-6">
             <Link href={'/stage/island'}>
-                <section className="group relative w-svw max-w-[960px]  aspect-[2/1] [perspective:1000px] [transform-style:preserve-3d]"
+                <section className={`${section}`}
                 >
-                    <div className={`${flip} [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)]`}>
+                    <div className={`${flip} ${front} ${hover}`}>
 
                         <Image src="/event/island.jpg" width={960} height={480} alt="island" />
 
                     </div>
-                    <div className={`${flip} justify-center items-center t-0 r-0 w-full h-full
-                whitespace-pre-line text-center  
-                [font-size:4cqw] md:text-2xl   
-                [transform:rotateY(180deg)] group-hover:[transform:rotateY(360deg)] bg-[url(/card.png)] `}>
+                    <div className={`${flip} ${textLayout} ${bg} `}>
                         {`一覺醒來，貓咪發現自己被沖上了神祕的荒島。
                     從暴風雨到洞窟的黑暗、從草叢裡詭異的視線到毒菇的陷阱，
                     每一步都是對膽量與肚皮的考驗！
@@ -31,17 +33,14 @@ function StageList() {
                 </section>
             </Link>
             <Link href={'/stage/summer'}>
-                <section className="group relative w-svw max-w-[960px]  aspect-[2/1] [perspective:1000px] [transform-style:preserve-3d]"
+                <section className={`${section}`}
                 >
-                    <div className={`${flip} [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)]`}>
+                    <div className={`${flip} ${front} ${hover}`}>
 
                         <Image src="/event/summer.jpg" width={960} height={480} alt="summer" />
 
                     </div>
-                    <div className={`${flip} justify-center items-center t-0 r-0 w-full h-full
-                whitespace-pre-line text-center  
-                [font-size:4cqw] md:text-2xl   
-                [transform:rotateY(180deg)] group-hover:[transform:rotateY(360deg)] bg-[url(/card.png)] `}>
+                    <div className={`${flip} ${textLayout} ${bg} `}>
                         {`暑假來臨，貓咪們迎來屬於自己的奇幻假期！
                           從晨光微曦的海邊到蟲鳴回蕩的夜晚，
                           牠們築基地、抓昆蟲、泡海水、追煙火，
@@ -58,17 +57,14 @@ function StageList() {
                 </section>
             </Link>
             <Link href={'/stage/vacation'}>
-                <section className="group relative w-svw max-w-[960px]  aspect-[2/1] [perspective:1000px] [transform-style:preserve-3d]"
+                <section className={`${section}`}
                 >
-                    <div className={`${flip} [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)]`}>
+                    <div className={`${flip} ${front} ${hover}`}>
 
                         <Image src="/event/vacation.jpg" width={960} height={480} alt="vacation" />
 
                     </div>
-                    <div className={`${flip} justify-center items-center t-0 r-0 w-full h-full
-                whitespace-pre-line text-center  
-                [font-size:4cqw] md:text-2xl   
-                [transform:rotateY(180deg)] group-hover:[transform:rotateY(360deg)] bg-[url(/card.png)] `}>
+                    <div className={`${flip}${textLayout} ${bg} `}>
                         {`為了打造全宇宙最棒的貓咪渡假村，
                           工程如火如荼展開！
                           從開發計畫到豪華設施、從笑容宣傳到VIP接待，

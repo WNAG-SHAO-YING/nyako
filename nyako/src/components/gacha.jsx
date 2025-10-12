@@ -21,10 +21,10 @@ export function GachaPhone() {
                 if (!res) return "資料庫未抓取";
                 const rows = await res.json();
 
-                // ✅ 就在這裡 setData
+
                 setData(rows);
 
-                // 若要先正規化，可改成：setData(rows.map(x => ({ uid: x.uid, photo: x.url, ... })));
+
             } catch (err) {
                 if (err.name !== "AbortError") console.error(err);
             }
@@ -119,14 +119,14 @@ export function GachaPhone() {
                         <button onClick={next} className="z-50 text-[15vw] right-0   text-myyellow"> &gt; </button>
                     </div>
                 </div>
-                <div className=" grid  gap-4 grid-cols-[repeat(auto-fit,minmax(50px,104px))]  w-[70vw] h-[300px] ">
+                <div className=" grid  gap-4 grid-cols-[repeat(auto-fit,minmax(50px,104px))]  justify-center w-[70vw] h-[300px] ">
                     {/* 圖片顯示區 */}
 
                     {showcat.map((item, i) => {
 
                         return (
                             <Link key={item.uid} href={`/cat/${item.uid}`}>
-                                < Image src={item.url} width={104} height={79} alt="cat" key={i} />
+                                < Image src={item.url} width={80} height={60} alt="cat" key={i} />
                             </Link>
                         )
                     })}

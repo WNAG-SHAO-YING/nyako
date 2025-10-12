@@ -11,7 +11,7 @@ export default function Archive({ list, onSelect }) {
 
     return (
         <>
-            <div className=" max-h-[150px] md:max-h-[200px] overflow-y-auto  overscroll-contain py-1" >
+            <div className=" max-h-full md:max-h-[200px] overflow-y-auto  overscroll-contain py-1" >
                 {/* 透過父層傳進來的函式去執行，執行的資料會直接被記錄在父層的prop裡(selected) 就是把set... 的函式功能交給子元件使用 */}
 
 

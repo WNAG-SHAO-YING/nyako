@@ -14,13 +14,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="zh-Hant">
-      <body className="bg-lightbg">
-        <Header />
-        {children}
-        <div className="fixed right-0 bottom-0">
-          <GOtop />
-        </div>
-      </body>
+      <>
+        <body className="flex flex-col min-h-svh bg-lightbg">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <div className="w-full h-[10svh]"></div>
+          <div className="w-full h-[10svh] flex flex-col items-center justify-center  bottom-0 bg-gray-400">
+            <p>本網站所有素材版權均屬於 PONOS Corporation</p>
+            <p>本網站僅供學術練習使用</p>
+          </div>
+          <div className="w-full h-[10svh] md:hidden"></div>
+          <div className="fixed right-0 bottom-0">
+            <GOtop />
+          </div>
+        </body>
+      </>
     </html>
   );
 }
