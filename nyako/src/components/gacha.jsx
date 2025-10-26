@@ -17,7 +17,7 @@ export function GachaPhone() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("http://localhost:3005/api/cat_status", {});
+                const res = await fetch("http://localhost:3000/api/cat_status", {});
                 if (!res) return "資料庫未抓取";
                 const rows = await res.json();
 
@@ -154,7 +154,7 @@ export function Gacha() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("http://localhost:3005/api/cat_status", {});
+                const res = await fetch("http://localhost:3000/api/cat_status", {});
                 if (!res) return "資料庫未抓取";
                 const rows = await res.json();
 

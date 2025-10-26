@@ -9,7 +9,7 @@ function Stage() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("http://localhost:3005/api/stage", {
+                const res = await fetch("http://localhost:3000/api/stage", {
                 });
                 if (!res) return "資料庫未抓取"
                 const rows = await res.json();

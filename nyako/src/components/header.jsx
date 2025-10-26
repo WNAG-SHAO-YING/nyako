@@ -32,13 +32,13 @@ export default function Header() {
             z-50">
         <Link href="/">
           <div className={`${layout}`}>
-            <Image src="/icon/icon.png" className='block shrink-0' width={48} height={48} priority alt="icon" />
+            <Image src="/icon/icon.png" className='block shrink-0 w-[48px] h-[48px]' width={48} height={48} priority alt="icon" />
             <span className="text-3xl ">首頁</span>
           </div>
         </Link>
         <Link href="/cat">
           <div className={`${layout}`}>
-            <Image src="/cat-library.png" width={60} height={60} priority alt="library" />
+            <Image src="/cat-library.png" width={60} height={60} priority alt="library" className="w-[48px] h-[48px]" />
             <span className="text-3xl ">圖鑑</span>
           </div>
         </Link>
@@ -50,7 +50,7 @@ export default function Header() {
         </Link>
         <Link href="/stage">
           <div className={`${layout}`}>
-            <Image src="/stage.png" width={48} height={48} priority alt="stage" />
+            <Image src="/stage.png" width={48} height={48} priority alt="stage" className="w-[48px] h-[48px]" />
             <span className="text-3xl ">關卡</span>
           </div>
         </Link>

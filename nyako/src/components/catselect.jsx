@@ -35,7 +35,7 @@ function Catselect() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("http://localhost:3005/api/cat_status", {
+                const res = await fetch("http://localhost:3000/api/cat_status", {
                 });
                 if (!res) return "資料庫未抓取"
                 const rows = await res.json();
@@ -65,13 +65,17 @@ function Catselect() {
             const key = cur.uid;
             if (!key) continue;
 
-            const { ability, ability_url, ...base } = cur; // 把 1:N 欄位排除，其餘淺拷貝
-            if (!acc[key]) acc[key] = { ...base, abilities: [], abilities_url: [] };
+            const { ability, ability_url, color, color_url, ...base } = cur; // 把 1:N 欄位排除，其餘淺拷貝
+            if (!acc[key]) acc[key] = { ...base, abilities: [], abilities_url: [], colors: [], colors_url: [] };
 
             const ab = ability ?? abilityName ?? ability_name;
             if (ab && !acc[key].abilities.includes(ab)) acc[key].abilities.push(ab);
             const url = ability_url;
             if (url && !acc[key].abilities_url.includes(url)) acc[key].abilities_url.push(url);
+            const colors = color;
+            if (colors && !acc[key].colors.includes(color)) acc[key].colors.push(color);
+            const colors_url = color_url;
+            if (colors_url && !acc[key].colors_url.includes(color_url)) acc[key].colors_url.push(color_url);
         }
         return Object.values(acc); // ← 最後才變回陣列
     }, [list]);

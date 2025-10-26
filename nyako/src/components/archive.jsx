@@ -52,7 +52,7 @@ export default function Archive({ list, onSelect }) {
                                             damping: 35,
                                         }}
                                         className="relative w-[50px] h-[36px] md:w-[104px] md:h-[79px] overflow-hidden rounded-none">
-                                        <Image src={`http://localhost:3005/public${item.url}`} fill sizes="max-width:104px max-height:79px" alt="藍眼" />
+                                        <Image src={`http://localhost:3000${item.url}`} fill sizes="max-width:104px max-height:79px" alt="藍眼" />
                                     </MotionCard>
                                 </Link>
                             )

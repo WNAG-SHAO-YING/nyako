@@ -25,9 +25,13 @@ function CatInfo({ data }) {
                         <div className={`col-span-4 ${flex} ${center}`}>稀有度:{item.rare}</div>
                     </div>
                     <div className="row-span-3 grid grid-cols-3  outline   outline-4 outline-lightbg">
-                        <div className="col-span-1  flex ">
-                            <div className="flex-[1] bg-myyellow  text-xs md:text-xl">
-                                屬性欄位
+                        <div className="col-span-1  flex  ">
+                            <div className={`flex-[1] bg-myyellow  text-xs md:text-xl place-content-center `}>
+                                <div className={`grid grid-cols-2 gap-1 p-1 place-items-center`} >
+                                    {item.colors_url.map(e => (
+                                        <Image src={e} width={30} height={30} key={e} alt="屬性" />
+                                    ))}
+                                </div>
                             </div>
                             <div className={`relative flex-[2] flex  box-border  ${center}`}>
                                 <Image src={item.url} width={104} height={79} className="object-contain" alt={item.uid} />
