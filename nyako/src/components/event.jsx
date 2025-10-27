@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-// import { useParams } from "next/navigation";
+
 
 export default function Event() {
-    // const uid = useParams();
+
 
     const data = [{ event_name: "貓咪的暑假-野外求生篇", event_url: "/event/island.jpg", reward: "/cat/EX/ex-09.png", uid: "ex09" },
     { event_name: "貓咪的暑假-蟲蟲王者相撲", event_url: "/event/summer.jpg", reward: "/cat/EX/ex-05.png", uid: "ex05" },

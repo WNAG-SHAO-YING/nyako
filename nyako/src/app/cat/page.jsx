@@ -1,3 +1,10 @@
+import Archive from "@/components/archive";
+import Filterbar from "@/components/filterbar";
+
 export default function Page() {
-    return null; // 或顯示一行提示都行
+    return (
+        <>
+
+        </>
+    )
 }

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 
 const MotionCard = motion(Card);
-export default function Archive({ list, onSelect }) {
+export default function Archive({ list = [], onSelect }) {
 
     return (
         <>
