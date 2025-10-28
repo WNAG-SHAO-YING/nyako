@@ -110,6 +110,7 @@ export function GachaPhone() {
                                     height={240}
                                     alt="gacha"
                                     className="object-contain w-full h-full"
+                                    loading="lazy"
                                 />
                             )
                         })}
@@ -247,7 +248,7 @@ export function Gacha() {
                                     damping: 15,
                                 }}
                                 key={item.img}>
-                                <Image src={item.img} width={860} height={240} alt={i} className="  shrink-0   object-contain"
+                                <Image src={item.img} width={860} height={240} alt={i} className="  shrink-0   object-contain" loading="lazy"
                                 />
                                 {i === 0 && (
                                     <>

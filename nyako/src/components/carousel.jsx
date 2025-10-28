@@ -15,7 +15,7 @@ export default function Carousel({ images = [] }) {
                     {images.map((items, i) => {
                         return (
                             <figure className={`${figure}`} key={i}>
-                                <Image src={items.src} width={960} height={480} alt="首頁輪播圖" className={`${img}`} />
+                                <Image src={items.src} width={960} height={480} alt="首頁輪播圖" className={`${img}`} loading="lazy" />
                             </figure>
                         )
                     })}

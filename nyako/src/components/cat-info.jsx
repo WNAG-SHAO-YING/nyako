@@ -29,12 +29,12 @@ function CatInfo({ data }) {
                             <div className={`flex-[1] bg-myyellow  text-xs md:text-xl place-content-center `}>
                                 <div className={`grid grid-cols-2 gap-1 p-1 place-items-center`} >
                                     {item.colors_url.map(e => (
-                                        <Image src={e} width={30} height={30} key={e} alt="屬性" />
+                                        <Image src={e} width={30} height={30} key={e} alt="屬性" loading="lazy" />
                                     ))}
                                 </div>
                             </div>
                             <div className={`relative flex-[2] flex  box-border  ${center}`}>
-                                <Image src={item.url} width={104} height={79} className="object-contain" alt={item.uid} />
+                                <Image src={item.url} width={104} height={79} className="object-contain" alt={item.uid} loading="lazy" />
                             </div>
                         </div>
                         <div className="col-span-1 flex flex-col  ">
@@ -116,7 +116,7 @@ function CatInfo({ data }) {
                             {
                                 item.abilities_url.map(function (url, id) {
                                     return (
-                                        <Image src={url} width={40} height={40} alt="能力" key={id} />
+                                        <Image src={url} width={40} height={40} alt="能力" key={id} loading="lazy" />
                                     )
                                 })
                             }

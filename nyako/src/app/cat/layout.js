@@ -1,12 +1,13 @@
 export const dynamic = "force-static";
+
 import Catselect from "@/components/catselect";
+
 import { CatDataProvider } from "@/components/cat-data";
 
+import { getCat } from "@/lib/cat_status";
+
 async function fetchCats() {
-  const res = await fetch("http://localhost:3000/api/cat_status", {
-    cache: "force-cache",
-  });
-  const rows = await res.json();
+  const rows = await getCat();
 
   return rows;
 }
